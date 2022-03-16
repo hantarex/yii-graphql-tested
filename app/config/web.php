@@ -1,5 +1,7 @@
 <?php
 
+use yii\graphql\ErrorFormatter;
+use yii\web\JsonParser;
 use yii\debug\Module;
 use yii\log\FileTarget;
 use yii\swiftmailer\Mailer;
@@ -20,14 +22,12 @@ $config = [
     ],
     'modules'=> [
         'api' => [
-            'class' => GraphQL::class,
-            //graphql config
+            'class' => \app\modules\graphql\Graphql::class,
+            'errorFormatter' => [ErrorFormatter::class, 'formatError'],
             'schema' => [
                 'query' => [
-                    'user' => 'app\graphql\query\UsersQuery'
                 ],
                 'mutation' => [
-                    'login'
                 ],
             // you do not need to set the types if your query contains interfaces or fragments
             // the key must same as your defined class
@@ -40,6 +40,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'aXfN0qsmozTk_WFVtfYikfv9htmXBcff',
+            'parsers' => [
+                'application/json' => JsonParser::class,
+            ],
         ],
         'cache' => [
             'class' => FileCache::class,
