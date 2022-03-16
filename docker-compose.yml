@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+
+  yii-fpm:
+    image: yiisoftware/yii2-php:7.2-apache
+    container_name: yii-fpm
+    restart: always
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - ./app:/app:delegated
+    depends_on:
+        - db
+
+  db:
+      image: mysql:5.7
+      restart: always
+      environment:
+          - MYSQL_DATABASE=test
+          - MYSQL_USER=test
+          - MYSQL_PASSWORD=my_user_password
+          - MYSQL_ROOT_PASSWORD=my_root_password
+      ports:
+          - '3316:3306'
+      volumes:
+          - "./docker/mysql:/var/lib/mysql"
