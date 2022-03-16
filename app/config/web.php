@@ -26,6 +26,7 @@ $config = [
             'errorFormatter' => [ErrorFormatter::class, 'formatError'],
             'schema' => [
                 'query' => [
+                    'user' => 'app\graphql\query\UsersQuery'
                 ],
                 'mutation' => [
                 ],
