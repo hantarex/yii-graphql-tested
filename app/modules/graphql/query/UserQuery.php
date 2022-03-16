@@ -9,10 +9,12 @@ use yii\graphql\base\GraphQLQuery;
 class UserQuery extends GraphQLQuery
 {
     public function type() {
+        die("aaa");
         return Type::string();
     }
 
     public function resolve($value, $args, $context, ResolveInfo $info) {
+        die("aaa");
         return "test";
     }
 }
