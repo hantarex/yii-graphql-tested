@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "videochat": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": {
+            "url": "http://localhost:8088/index.php?r=api",
+            "headers": {
+              "Cookie": "token=dev"
+            },
+            "introspect": true
+          }
+        }
+      }
+    }
+  }
+}

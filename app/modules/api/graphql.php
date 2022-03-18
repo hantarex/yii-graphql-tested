@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\graphql;
+namespace app\modules\api;
 
 /**
  * graphql module definition class
  */
-class Graphql extends \yii\base\Module
+class graphql extends \yii\base\Module
 {
     use \yii\graphql\GraphQLModuleTrait;
 }

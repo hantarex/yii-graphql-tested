@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\graphql\controllers;
+namespace app\modules\api\controllers;
 
 use yii\web\Controller;
 use yii\graphql\GraphQLAction;
@@ -10,6 +10,13 @@ use yii\graphql\GraphQLAction;
  */
 class DefaultController extends Controller
 {
+
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     function actions() {
         return [
             'index'=>[

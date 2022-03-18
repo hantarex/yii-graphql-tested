@@ -22,11 +22,11 @@ $config = [
     ],
     'modules'=> [
         'api' => [
-            'class' => \app\modules\graphql\Graphql::class,
+            'class' => \app\modules\api\graphql::class,
             'errorFormatter' => [ErrorFormatter::class, 'formatError'],
             'schema' => [
                 'query' => [
-//                    'user' => \app\modules\graphql\query\UserQuery::class,
+                    'user' => \app\modules\api\query\UserQuery::class,
                 ],
                 'mutation' => [
                 ],
